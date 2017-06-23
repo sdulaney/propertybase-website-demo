@@ -12,13 +12,13 @@ $(function() {
   // Load listings based on query string
   loadListings();
 
-  /* 
+  /*
    * Load page content based on query string
    *
    * Case 1: Query string contains listing id
    * Case 2: Query string contains search params e.g. price
    * Case 3: Query string is empty
-   */ 
+   */
   function loadListings() {
     $('#js-spinner').show();
     queryParams = parseURL();
@@ -43,9 +43,9 @@ $(function() {
   //  Request function
   //
 
-  /* 
+  /*
    * Request a single listing by Id
-   */ 
+   */
   function requestContent() {
     var requestType = "query";
     var requestData;
@@ -66,10 +66,10 @@ $(function() {
 
           $('#js-spinner').hide();
 
-          var responseParsed = JSON.parse(response);         
+          var responseParsed = JSON.parse(response);
           if(responseParsed.Listings){
             console.info("Response:");
-            console.info(responseParsed.Listings);     
+            console.info(responseParsed.Listings);
 
             locations = [];
             for(var key in responseParsed.Listings) {
@@ -193,7 +193,7 @@ $(function() {
     $('#slider ul li').each(function(){
       $(this).css({ width: slideWidth, height: slideHeight });
     })
-    
+
     if(slideCount == 1){
       $('.prev, .next').hide();
     } else {
@@ -413,7 +413,7 @@ $(function() {
   $('select[name=type], select[name=price], select[name=size], select[name=bedrooms], select[name=bathrooms]').change(function(){
     if(this.value != 'default'){
       $(this).addClass('selected');
-    } else {  
+    } else {
       $(this).removeClass('selected');
     }
   })
@@ -428,7 +428,7 @@ $(function() {
     var ranges = queryParams.price.split(';');
     rangeStart = ranges[0];
     rangeEnd = ranges[1];
-    adjustSlider(); 
+    adjustSlider();
     // Adjust all other search filter values
     if(queryParams.type) {
       $('select[name=type]').val(queryParams.type);
@@ -495,7 +495,7 @@ $(function() {
   //  Find listing by id
   function findListingById(id) {
     if(data.Listings){
-      var result = $.grep(data.Listings, function(i){ 
+      var result = $.grep(data.Listings, function(i){
         return i.Id == id;
       });
       return result[0];
