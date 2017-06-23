@@ -300,8 +300,9 @@
   border-radius: 2px;
   float: left;
   padding: 5px 10px 5px 10px;
-  border: 1px solid #fff;
+  border: 2px solid #fff;
   margin-right: 10px;
+  font-weight: bold;
 }
 
 .header-nav a:hover {
